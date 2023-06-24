@@ -19,6 +19,11 @@ function Navigation() {
             SHOP
           </Link>
         </div>
+        <div className='nav-links-container'>
+          <Link className='nav-links' to='/sign-in'>
+            Sign in
+          </Link>
+        </div>
       </div>
       <Outlet />
     </Fragment>
