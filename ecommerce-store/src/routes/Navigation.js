@@ -20,7 +20,7 @@ function Navigation() {
           </Link>
         </div>
         <div className='nav-links-container'>
-          <Link className='nav-links' to='/sign-in'>
+          <Link className='nav-links' to='/auth'>
             Sign in
           </Link>
         </div>

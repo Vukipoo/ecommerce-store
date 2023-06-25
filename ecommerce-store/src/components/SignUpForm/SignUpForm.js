@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase.utils";
 import FormInput from "../FormInput";
 import Button from "../Button";
+import './SignUpForm.styles.scss'
 
 const defaultFormFields = {
   displayName: '',
@@ -22,7 +23,7 @@ function SignUpForm() {
     const handleSubmit = async (event) => {
       event.preventDefault();
 
-      if(password != confirmPassword) {
+      if(password !== confirmPassword) {
         alert('passwords do not match')
         return
       }
@@ -57,7 +58,7 @@ function SignUpForm() {
 
   return (
     <div className="sign-up-container">
-      <h2>DOnt have an account?</h2>
+      <h2>Dont have an account?</h2>
       <span>Sign Up with email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput label = 'Display Name' type='text' required onChange={handleChange} name = 'displayName' value = {displayName} />
