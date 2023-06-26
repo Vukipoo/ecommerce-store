@@ -5,6 +5,7 @@ import FormInput from "../FormInput";
 import Button from "../Button";
 import './SignInForm.styles.scss'
 import { connectFirestoreEmulator } from "firebase/firestore";
+import { useInRouterContext } from "react-router-dom";
 
 const defaultFormFields = {
   email: '',
@@ -15,13 +16,16 @@ function SignInForm() {
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { email, password } = formFields
 
+
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields)
 }
 
 const signInWithGoogle = async() => {
-  const { user } = await signInWithGooglePopup();
-  await createUserDocumentFromAuth(user)
+  await signInWithGooglePopup();
+ 
+   
 
 }
   
@@ -31,8 +35,8 @@ const signInWithGoogle = async() => {
 
 
       try {
-        const response = await signInAuthUserWithEmailAndPassword(email, password)
-        console.log(response)
+        const { user } = await signInAuthUserWithEmailAndPassword(email, password)
+        
         resetFormFields()
       }catch(error){
         switch(error.code) {
