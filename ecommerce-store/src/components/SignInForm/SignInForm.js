@@ -4,6 +4,7 @@ import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEm
 import FormInput from "../FormInput";
 import Button from "../Button";
 import './SignInForm.styles.scss'
+import { UserContext } from "../../contexts/UserContext";
 import { connectFirestoreEmulator } from "firebase/firestore";
 import { useInRouterContext } from "react-router-dom";
 
@@ -23,7 +24,7 @@ function SignInForm() {
 }
 
 const signInWithGoogle = async() => {
-  await signInWithGooglePopup();
+   await signInWithGooglePopup();
  
    
 
